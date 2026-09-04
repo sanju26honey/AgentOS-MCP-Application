@@ -5,7 +5,7 @@ import { CustomerAgentSandbox } from './views/CustomerAgentSandbox';
 import { CustomerStorefront } from './views/CustomerStorefront';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('merchant');
+  const [currentView, setCurrentView] = useState('agent');
   const [isSseConnected, setIsSseConnected] = useState(true);
   const [dbEngine, setDbEngine] = useState('POSTGRESQL');
   const [agentPrompt, setAgentPrompt] = useState('');
