@@ -1,0 +1,15 @@
+# Python cache & compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+
+# Local databases & secret configs
+*.db
+data/*.db
+.env
+.env.local
+*.log
