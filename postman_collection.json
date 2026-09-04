@@ -1,0 +1,487 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "Universal AI-Commerce Adapter API",
+		"description": "API endpoints for Universal AI-Commerce Adapter for Razorpay Merchants (Sub-phase 2.3 - Audit Telemetry, Real-Time SSE Stream & Razorpay Integration)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "System Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/health",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["health"]
+				}
+			}
+		},
+		{
+			"name": "Merchant Config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/config",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "config"]
+				}
+			}
+		},
+		{
+			"name": "Search Catalog (Keyword & Price)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/search?query=jacket&max_price=5000",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "search"],
+					"query": [
+						{
+							"key": "query",
+							"value": "jacket"
+						},
+						{
+							"key": "max_price",
+							"value": "5000"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Search Catalog by Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/search?category=Smart Gadgets",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "search"],
+					"query": [
+						{
+							"key": "category",
+							"value": "Smart Gadgets"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Get Product Details by SKU",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/products/APEX-JKT-001",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "products", "APEX-JKT-001"]
+				}
+			}
+		},
+		{
+			"name": "Get Smart Upsell Recommendations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/upsell?sku=APEX-JKT-001",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "upsell"],
+					"query": [
+						{
+							"key": "sku",
+							"value": "APEX-JKT-001"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Evaluate Policy Guardrails (Pre-flight)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"buyer_email\": \"customer_agent@example.com\",\n  \"items\": [\n    {\n      \"sku\": \"APEX-JKT-001\",\n      \"quantity\": 1,\n      \"claimed_unit_price\": 4499.0\n    }\n  ],\n  \"total_amount\": 4499.0,\n  \"currency\": \"INR\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/policy/evaluate",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "policy", "evaluate"]
+				}
+			}
+		},
+		{
+			"name": "Create Order (Policy Check & Stock Lock)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"buyer_email\": \"customer_agent@example.com\",\n  \"items\": [\n    {\n      \"sku\": \"APEX-JKT-002\",\n      \"quantity\": 1,\n      \"claimed_unit_price\": 2499.0\n    }\n  ],\n  \"total_amount\": 2499.0,\n  \"currency\": \"INR\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/orders/create",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "orders", "create"]
+				}
+			}
+		},
+		{
+			"name": "Get Order Details by Order ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/orders/ORD-20260825-XXXXXX",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "orders", "ORD-20260825-XXXXXX"]
+				}
+			}
+		},
+		{
+			"name": "Transition Order State Machine",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"target_state\": \"AUTHORIZED_FOR_PAYMENT\",\n  \"razorpay_order_id\": \"order_rzp_test_12345\",\n  \"auth_token\": \"hmac_sample_token\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/orders/ORD-20260825-XXXXXX/transition",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "orders", "ORD-20260825-XXXXXX", "transition"]
+				}
+			}
+		},
+		{
+			"name": "Reserve Stock",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sku\": \"APEX-JKT-001\",\n  \"quantity\": 2\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/reserve",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "reserve"]
+				}
+			}
+		},
+		{
+			"name": "Release Reserved Stock",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sku\": \"APEX-JKT-001\",\n  \"quantity\": 1\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/release",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "release"]
+				}
+			}
+		},
+		{
+			"name": "Commit Stock Deduction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sku\": \"APEX-JKT-001\",\n  \"quantity\": 1\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/commit",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "commit"]
+				}
+			}
+		},
+		{
+			"name": "Get Merchant Inventory Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/inventory?low_stock_threshold=10",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "inventory"],
+					"query": [
+						{
+							"key": "low_stock_threshold",
+							"value": "10"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Update / Restock Inventory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sku\": \"APEX-JKT-001\",\n  \"stock_delta\": 5\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/inventory/update",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "inventory", "update"]
+				}
+			}
+		},
+		{
+			"name": "Seed Catalog Database",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/catalog/seed",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "catalog", "seed"]
+				}
+			}
+		},
+		{
+			"name": "Create Razorpay Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"order_id\": \"ORD-20260825-XXXXXX\",\n  \"notes\": {\n    \"channel\": \"postman\"\n  }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/payments/create-order",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "payments", "create-order"]
+				}
+			}
+		},
+		{
+			"name": "Create Step-Up Payment Link",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"order_id\": \"ORD-20260825-XXXXXX\",\n  \"description\": \"Step-Up Authorization Link\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/payments/create-link",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "payments", "create-link"]
+				}
+			}
+		},
+		{
+			"name": "Verify Payment Signature & Commit Stock",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"internal_order_id\": \"ORD-20260825-XXXXXX\",\n  \"razorpay_order_id\": \"order_rzp_test_12345\",\n  \"razorpay_payment_id\": \"pay_rzp_test_67890\",\n  \"razorpay_signature\": \"sample_hmac_signature\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/payments/verify",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "payments", "verify"]
+				}
+			}
+		},
+		{
+			"name": "Razorpay Webhook Receiver",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Razorpay-Signature",
+						"value": "hmac_signature_header_value",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"event\": \"payment.captured\",\n  \"payload\": {\n    \"payment\": {\n      \"entity\": {\n        \"id\": \"pay_rzp_test_67890\",\n        \"order_id\": \"order_rzp_test_12345\",\n        \"amount\": 249900,\n        \"notes\": {\n          \"internal_order_id\": \"ORD-20260825-XXXXXX\"\n        }\n      }\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/webhooks/razorpay",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "webhooks", "razorpay"]
+				}
+			}
+		},
+		{
+			"name": "Real-Time Telemetry Stream (SSE)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/event-stream",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/telemetry/stream",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "telemetry", "stream"]
+				}
+			}
+		},
+		{
+			"name": "Get Audit Telemetry Logs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/telemetry/logs?limit=50",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "telemetry", "logs"],
+					"query": [
+						{
+							"key": "limit",
+							"value": "50"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Get Audit Logs by Order ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/telemetry/logs/ORD-20260825-XXXXXX",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8080",
+					"path": ["api", "telemetry", "logs", "ORD-20260825-XXXXXX"]
+				}
+			}
+		}
+	]
+}

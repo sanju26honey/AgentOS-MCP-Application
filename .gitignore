@@ -1,0 +1,36 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Python cache & virtual environments
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+
+# Environment secrets (DO NOT COMMIT)
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+**/dist/
+build/
+
+# Local databases & logs
+*.db
+backend/data/*.db
+*.log
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
