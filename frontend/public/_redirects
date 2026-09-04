@@ -1,5 +1,5 @@
 # Netlify API proxy rewrite rule
-/api/*  https://YOUR-BACKEND-NAME.onrender.com/api/:splat  200
+/api/*  https://agentos-mcp-backend.onrender.com/api/:splat  200
 
 # SPA fallback rule
 /*  /index.html  200
