@@ -1,4 +1,4 @@
-# AgentOS: Universal AI-Commerce Adapter for Razorpay Merchants
+# Universal AI-Commerce Adapter for Razorpay Merchants
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=22&duration=3000&pause=500&color=3B82F6&vCenter=true&width=900&lines=23%20Endpoints%20%E2%80%A2%208%20MCP%20Tools%20%E2%80%A2%20Real-time%20SSE%20Telemetry;AI%20Commerce%20Middleware%20for%20Razorpay%20Merchants;Zero-Trust%20Agent%20Shopping%20with%20Human-in-the-Loop%20Approval" />
 
