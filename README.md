@@ -22,20 +22,20 @@ The **Universal AI-Commerce Adapter** is an enterprise-grade middleware and **Mo
 This system maintains a strict separation between **Merchant Backend Operations** and **Customer AI Agent Integrations**:
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                          1. MERCHANT / VENDOR ROLE                          │
-│                     (FastAPI REST Backend + Dashboard)                      │
-│                                                                             │
-│  • Used by: Merchants, Store Administrators, Inventory Managers, Finance    │
-│  • Core Actions:                                                            │
+┌───────────────────────────────────────────────────────────────────────────────────┐
+│                          1. MERCHANT / VENDOR ROLE                                │
+│                     (FastAPI REST Backend + Dashboard)                            │
+│                                                                                   │
+│  • Used by: Merchants, Store Administrators, Inventory Managers, Finance          │
+│  • Core Actions:                                                                  │
 │    - Restock & adjust inventory stock levels (POST /api/catalog/inventory/update) │
-│    - Monitor low-stock alerts & stock health (GET /api/catalog/inventory)  │
-│    - Tune autonomous spending limits dynamically (PUT /api/dashboard/policy) │
-│    - Monitor revenue, transaction volume & throughput (GET /api/dashboard/stats)│
-│    - Audit transaction logs & SSE telemetry streams (GET /api/telemetry/stream) │
-│    - Receive automated Razorpay Webhooks (POST /api/webhooks/razorpay)      │
-│    - Download itemized PDF receipts for fulfilled orders                     │
-└─────────────────────────────────────────────────────────────────────────────┘
+│    - Monitor low-stock alerts & stock health (GET /api/catalog/inventory)         │
+│    - Tune autonomous spending limits dynamically (PUT /api/dashboard/policy)      │
+│    - Monitor revenue, transaction volume & throughput (GET /api/dashboard/stats)  │
+│    - Audit transaction logs & SSE telemetry streams (GET /api/telemetry/stream)   │
+│    - Receive automated Razorpay Webhooks (POST /api/webhooks/razorpay)            │
+│    - Download itemized PDF receipts for fulfilled orders                          │
+└───────────────────────────────────────────────────────────────────────────────────┘
 
                                       ▲
                                       │ Database & Shared Services
@@ -52,7 +52,7 @@ This system maintains a strict separation between **Merchant Backend Operations*
 │    - Evaluate smart growth upsells & bundle discounts (get_smart_upsell)    │
 │    - Submit purchase orders validated against policy rules (create_order)   │
 │    - Submit step-up auth for orders > spending limit (authorize_payment)    │
-│    - Verify Razorpay signatures & commit payments (confirm_payment)        │
+│    - Verify Razorpay signatures & commit payments (confirm_payment)         │
 │    - Query real-time order state & tracking status (get_order_status)       │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
