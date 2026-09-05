@@ -1,4 +1,7 @@
 # Universal AI-Commerce Adapter for Razorpay Merchants
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=22&duration=3000&pause=500&color=3B82F6&vCenter=true&width=900&lines=23%20Endpoints%20%E2%80%A2%208%20MCP%20Tools%20%E2%80%A2%20Real-time%20SSE%20Telemetry;AI%20Commerce%20Middleware%20for%20Razorpay%20Merchants;Zero-Trust%20Agent%20Shopping%20with%20Human-in-the-Loop%20Approval" />
+
 ### AgentOS & Model Context Protocol (MCP) Commerce Middleware
 
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -295,12 +298,12 @@ python -m backend.mcp_stdio_server
 {
   "mcpServers": {
     "razorpay-commerce-adapter": {
-      "command": "d:/Razorpay Buildathon/.venv/Scripts/python.exe",
+      "command": "<path-to-project>/.venv/Scripts/python.exe",
       "args": [
         "-m",
         "backend.mcp_stdio_server"
       ],
-      "cwd": "d:/Razorpay Buildathon"
+      "cwd": "<path-to-project>"
     }
   }
 }
@@ -398,4 +401,4 @@ The automated test suite verifies:
 
 ## License and Attribution
 
-Built for the **Razorpay Buildathon** | Powered by **FastAPI**, **Model Context Protocol (MCP)**, and **Razorpay**.
+Built by [Sanju](https://sanju26.in) for the **Razorpay Buildathon** | Powered by **FastAPI**, **Model Context Protocol (MCP)**, and **Razorpay**.
