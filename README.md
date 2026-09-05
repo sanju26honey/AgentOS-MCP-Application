@@ -1,8 +1,8 @@
-# Universal AI-Commerce Adapter for Razorpay Merchants
+# AgentOS: Universal AI-Commerce Adapter for Razorpay Merchants
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=22&duration=3000&pause=500&color=3B82F6&vCenter=true&width=900&lines=23%20Endpoints%20%E2%80%A2%208%20MCP%20Tools%20%E2%80%A2%20Real-time%20SSE%20Telemetry;AI%20Commerce%20Middleware%20for%20Razorpay%20Merchants;Zero-Trust%20Agent%20Shopping%20with%20Human-in-the-Loop%20Approval" />
 
-### AgentOS & Model Context Protocol (MCP) Commerce Middleware
+### Model Context Protocol (MCP) Commerce Middleware
 
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg)](https://fastapi.tiangolo.com/)
@@ -13,7 +13,7 @@
 
 ## Executive Overview
 
-The **Universal AI-Commerce Adapter** is an enterprise-grade middleware and **Model Context Protocol (MCP) Server** enabling AI Buyer Agents (such as Claude Desktop, Cursor, AgentOS, and custom LLM agents) to seamlessly discover merchant catalog items, receive intelligent cross-sell recommendations, validate deterministic spending policies, and safely execute transactions via **Razorpay**.
+The **AgentOS Universal AI-Commerce Adapter** is an **enterprise-grade backend for merchants** and **Model Context Protocol (MCP) Server** enabling AI Buyer Agents (such as Claude Desktop, Cursor, and custom LLM agents) to seamlessly discover merchant catalog items, receive intelligent cross-sell recommendations, validate deterministic spending policies, and safely execute transactions via **Razorpay**.
 
 ---
 
@@ -41,20 +41,20 @@ This system maintains a strict separation between **Merchant Backend Operations*
                                       │ Database & Shared Services
                                       ▼
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                      2. CUSTOMER / AI BUYER AGENT ROLE                      │
-│                   (Model Context Protocol - MCP Server)                     │
-│                                                                             │
-│  • Used by: Customers, AI Buyer Agents (Claude, Cursor, AgentOS)            │
-│  • Core Actions:                                                            │
-│    - Added into customer AI agents as an MCP tool standard                  │
-│    - Search merchant catalog & query product specs (search_products)        │
-│    - Evaluate smart growth upsells & bundle discounts (get_smart_upsell)    │
-│    - Submit purchase orders validated against policy rules (create_order)   │
-│    - Submit step-up auth for orders > spending limit (authorize_payment)    │
-│    - Verify Razorpay signatures & commit payments (confirm_payment)         │
-│    - Query real-time order state & tracking status (get_order_status)       │
-└─────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────┐
+│                      2. CUSTOMER / AI BUYER AGENT ROLE                            │
+│                   (Model Context Protocol - MCP Server)                           │
+│                                                                                   │
+│  • Used by: Customers, AI Buyer Agents (Claude, Cursor, Gemini or any other LLM)  │
+│  • Core Actions:                                                                  │
+│    - Added into customer AI agents as an MCP tool standard                        │
+│    - Search merchant catalog & query product specs (search_products)              │
+│    - Evaluate smart growth upsells & bundle discounts (get_smart_upsell)          │
+│    - Submit purchase orders validated against policy rules (create_order)         │
+│    - Submit step-up auth for orders > spending limit (authorize_payment)          │
+│    - Verify Razorpay signatures & commit payments (confirm_payment)               │
+│    - Query real-time order state & tracking status (get_order_status)             │
+└───────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
